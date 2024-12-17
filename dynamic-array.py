@@ -2,6 +2,9 @@
 
 class DynamicArray:
 
+    def __repr__(self):
+        return f"<DynamicArray capacity: {self.capacity} size: {self.size}>"
+
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.size = 0
