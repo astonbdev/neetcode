@@ -36,7 +36,7 @@ class DynamicArray:
             new_arr[i] = self.arr[i]
         self.arr = new_arr
 
-    def getSize(self) -> int:
+    def get_size(self) -> int:
         return self.size
 
     def getCapacity(self) -> int:
