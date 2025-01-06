@@ -50,13 +50,14 @@ class LinkedList:
             if (self.head.next is None):
                 self.head = None
                 return True
-        else:
-            self.head = self.head.next
-            return True
+            else:
+                self.head = self.head.next
+                return True
 
         count = 0
         curr_node = self.head
 
+        # [0,1,2]
         while (count < index - 1 and curr_node.next is not None):
             curr_node = curr_node.next
             count += 1
