@@ -4,6 +4,9 @@ class LinkedList:
         self.head = None
 
     def get(self, index: int) -> int:
+        if (self.head is None):
+            return -1
+
         count = 0
         curr_node = self.head
 
@@ -11,6 +14,7 @@ class LinkedList:
             if curr_node is None:
                 return -1
             curr_node = curr_node.next
+            count += 1
 
         return curr_node.val
 
@@ -69,7 +73,7 @@ class LinkedList:
 
         return True
 
-    def getValues(self) -> List[int]:
+    def getValues(self) -> list[int]:
         vals = []
         curr_node = self.head
 
@@ -85,3 +89,9 @@ class Node:
     def __init__(self, val):
         self.val = val
         self.next = None
+
+
+ll = LinkedList()
+ll.insertTail(1)
+ll.insertTail(2)
+ll.get(1)
