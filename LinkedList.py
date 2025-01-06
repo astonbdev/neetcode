@@ -1,7 +1,7 @@
 class LinkedList:
 
     def __init__(self):
-        return None
+        self.head = None
 
     def get(self, index: int) -> int:
         count = 0
@@ -14,7 +14,7 @@ class LinkedList:
 
         return curr_node.val
 
-    def insert_head(self, val: int) -> None:
+    def insertHead(self, val: int) -> None:
         if self.head is None:
             self.head = Node(val)
             return
@@ -26,7 +26,7 @@ class LinkedList:
         return None
 
     # [1,2,3,4] -> 5
-    def insert_tail(self, val: int) -> None:
+    def insertTail(self, val: int) -> None:
         if self.head is None:
             self.head = Node(val)
             return
@@ -63,18 +63,18 @@ class LinkedList:
 
         if (curr_node.next is None):
             return False
+
         curr_node.next = curr_node.next.next
 
         return True
 
-    def get_values(self) -> List[int]:
+    def getValues(self) -> List[int]:
         vals = []
         curr_node = self.head
-        vals.append(self.head.val)
 
         while (curr_node is not None):
-            curr_node = curr_node.next
             vals.append(curr_node.val)
+            curr_node = curr_node.next
 
         return vals
 
