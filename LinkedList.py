@@ -8,11 +8,11 @@ class LinkedList:
         curr_node = self.head
 
         while (count != index):
-            if currNode is None:
+            if curr_node is None:
                 return -1
-            currNode = currNode.next
+            curr_node = curr_node.next
 
-        return currNode.val
+        return curr_node.val
 
     def insert_head(self, val: int) -> None:
         new_node = Node(val)
@@ -22,7 +22,13 @@ class LinkedList:
         return None
 
     def insert_tail(self, val: int) -> None:
-        curr_node
+        new_node = Node(val)
+        curr_node = self.head
+
+        while (curr_node.next is not None):
+            curr_node = curr_node.next
+
+        curr_node.next = new_node
         return None
 
     def remove(self, index: int) -> bool:
