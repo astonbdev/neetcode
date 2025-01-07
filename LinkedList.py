@@ -16,6 +16,9 @@ class LinkedList:
             curr_node = curr_node.next
             count += 1
 
+        if curr_node is None:
+            return -1
+
         return curr_node.val
 
     def insertHead(self, val: int) -> None:
