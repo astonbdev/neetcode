@@ -13,18 +13,18 @@ class Solution:
         out.append(pairs.copy())
 
         # [2,9,5]
-        for i in range(1, length + 1):
+        for i in range(1, length):
             curr_pair = pairs[i]
             count = i
 
             while (count > 0):
-                prev_pair = pairs[i-1]
-                curr_key = curr_pair.key
-                prev_key = prev_pair.key
+                prev_pair = pairs[count-1]
+                curr_key = curr_pair[0]
+                prev_key = prev_pair[0]
 
                 if (curr_key < prev_key):
-                    pairs[i] = prev_pair
-                    pairs[i-1] = curr_pair
+                    pairs[count] = prev_pair
+                    pairs[count-1] = curr_pair
                 else:
                     break
 
@@ -33,3 +33,9 @@ class Solution:
             out.append(pairs.copy())
 
         return out
+
+
+pairs = [(5, "apple"), (2, "banana"), (1, "cherry")]
+
+s = Solution()
+s.insertionSort(pairs)
