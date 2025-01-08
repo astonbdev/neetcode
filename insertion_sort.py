@@ -19,8 +19,8 @@ class Solution:
 
             while (count > 0):
                 prev_pair = pairs[count-1]
-                curr_key = curr_pair[0]
-                prev_key = prev_pair[0]
+                curr_key = curr_pair.key
+                prev_key = prev_pair.key
 
                 if (curr_key < prev_key):
                     pairs[count] = prev_pair
