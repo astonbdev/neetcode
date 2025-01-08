@@ -7,6 +7,8 @@ class Pair:
 
 class Solution:
     def insertionSort(self, pairs: list[Pair]) -> list[list[Pair]]:
+        if (len(pairs) == 0):
+            return []
 
         length = len(pairs)
         out = []
