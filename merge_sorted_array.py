@@ -3,6 +3,11 @@ class Solution:
         """
         Do not return anything, modify nums1 in-place instead.
         """
+        # Since the array starts with length m+n, the other values are filled with 0s
+        # This means we can instead iterate from the highest integer backwards
+        # as a result, we'll never lose a value from nums1, since if we never changed
+        # the position of elements in nums1, then we consequently only had values
+        # larger than everything in nums1 in nums2
 
         # start a counter for both arrays
         # start a while loop that ends when one count is reaches the length of sorted array
