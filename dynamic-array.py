@@ -39,5 +39,5 @@ class DynamicArray:
     def get_size(self) -> int:
         return self.size
 
-    def getCapacity(self) -> int:
+    def get_capacity(self) -> int:
         return self.capacity
