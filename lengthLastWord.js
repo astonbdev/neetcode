@@ -35,5 +35,19 @@ There will be at least one word in s.
  * @param {string} s
  * @return {number}
  */
-function lengthOfLastWord {
+function lengthOfLastWord(string){
+  // const words = 
+  //start by splitting the string on empty spaces " "
+  //that will give some output that looks like: [fly, me, to, the moon, "", ""]
+  //iterate backwards in the array, until we get a value with length > 0
+  //return the length of the word at the corresponding idx
+
+  const words = string.split(" ");
+  let lastIdx = words.length - 1;
+
+  for(let i = lastIdx; i > 0; i--){
+    if(words[i].length > 0) return words[i].length;
+  }
+
+  return words[0].length;
 }
