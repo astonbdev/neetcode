@@ -49,5 +49,5 @@ function lengthOfLastWord(string){
     if(words[i].length > 0) return words[i].length;
   }
 
-  return words[0].length;
+  return words[0].length
 }

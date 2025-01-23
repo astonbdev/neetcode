@@ -18,6 +18,8 @@ var searchInsert = function(nums, target) {
     let right = nums.length - 1;
 
     while(left <= right){
+      //with how this is written, this returns the idx of the SUB ARRAY
+      //NOT THE IDX OF THE *ACTUAL* array
       currIdx = Math.floor((right - left) / 2);
       if(nums[currIdx] === target) return currIdx;
 
