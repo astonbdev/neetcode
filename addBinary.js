@@ -47,7 +47,7 @@ function intToBinary(value) {
   let workingValue = value;
 
   for(let i = exponent; i >= 0; i--){
-    if(2**i <= value){
+    if(2**i <= workingValue){
       binaryStr += "1";
       workingValue -= 2**i;
     } 
