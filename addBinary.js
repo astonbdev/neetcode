@@ -21,10 +21,15 @@ function binaryToInt(binaryStr) {
   let sum = 0
 
   for(let i = binaryStr.length - 1; i >= 0; i-- ){
-      if(binaryStr[i] === 1) sum += 2**exponent;
+      if(binaryStr[i] === "1") sum += 2**exponent;
+      exponent += 1;
   }
 
   return sum;
 }
 
-function intToBinary() {}
+function intToBinary(value) {
+  const isOdd = value % 2 ? true : false;
+  const workingValue = isOdd ? value - 1 : value;
+
+}
