@@ -4,9 +4,12 @@
  * @return {string}
  */
 var addBinary = function(a, b) {
-  //start by converting the binary string to int
-  //add
-  //convert int to binary number
+  const intA = binaryToInt(a);
+  const intB = binaryToInt(b);
+
+  const sum = intA + intB;
+
+  return intToBinary(sum);
 };
 
 function binaryToInt(binaryStr) {
@@ -29,7 +32,31 @@ function binaryToInt(binaryStr) {
 }
 
 function intToBinary(value) {
-  const isOdd = value % 2 ? true : false;
-  const workingValue = isOdd ? value - 1 : value;
+  //start with a sum equal to value
+  //create an exponent variable
+  //this will keep track of the highest value we need to care about in our str
+  //once we know this, we can iterate over a working value, subtracting the exponent from
+  //our input value. if the current exponent value is *less* than the working value, subtract it.
+  //otherwise, decrease the exponent value and then check again.
+  //if it can be subtracted, then we append to a string the value "1". if we can't "0"
 
+  //this gets us the maximum exponent we would need to achieve the input value
+  //we can then derive the value of our binary string starting with this exponent
+  let exponent = Math.floor(Math.log2(value));
+  let binaryStr = "";
+  let workingValue = value;
+
+  for(let i = exponent; i >= 0; i--){
+    if(2**i < value){
+      binaryStr += "1";
+      workingValue -= 2**i;
+    } 
+    else{
+      binaryStr += "0";
+    }
+  }
+
+  return binaryStr;
 }
+
+intToBinary(63);
