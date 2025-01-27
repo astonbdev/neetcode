@@ -25,20 +25,72 @@ Given the root of a binary tree, check whether it is a mirror of itself (i.e., s
 var isSymmetric = function(root) {
   //if root is null, true since a 0 depth tree is symmetrical
   // if root has no left or no right sub tree, then its immediately false
-  
+
   if(root === null) return true;
   if(!root.left || !root.right) return false;
 
-  const left = root.left;
-  const right = root.right;
-    
+  const left = inOrderTraverse(root.left);
+  const right = inOrderTraverse(root.right);
+
+  if(left.length !== right.length) return false;
+
+  const leftValues = left.filter((e) => typeof e !== "boolean");
+  const rightValues = right.filter((e) => typeof e !== "boolean");
+
+  const leftStructures = left.filter((e) => typeof e === "boolean");
+  const rightStructures = right.filter((e) => typeof e === "boolean");
+  rightStructures.map((e)=>!e);
+
+
+  const symStructure = testStructure(leftStructures, rightStructures);
+  const symValues = testValues(leftValues, rightValues);
+
+  if(symStructure && symValues) return true;
+  return false;
 };
+
+function testValues(left, right){
+  right = right.reverse();
+
+  for(let i = 0; i < left.length; i++){
+    if(left[i] !== right[i]) return false;
+  }
+
+  return true;
+}
+
+function testStructure(left, right){
+  right = right.map((e)=>!e);
+
+  for(let i = 0; i < left.length; i++){
+    if(left[i] !== right[i]) return false;
+  }
+
+  return true;
+}
 
 function inOrderTraverse(root, out = []){
 
-  if(root.left !== null) inOrderTraverse(root.left, out);
+  if(root.left !== null){
+    out.push(true);
+    inOrderTraverse(root.left, out);
+  } 
+  else{
+    out.push(false);
+  }
+
   out.push(root.val)
-  if(root.right !== null) inOrderTraverse(root.right, out);
+  
+  if(root.right !== null){
+    out.push(true);
+    inOrderTraverse(root.right, out);
+  } 
+  else{
+    out.push(false);
+  }
 
   return out;
 }
+
+true, false, false, false
+false, true, false, false
