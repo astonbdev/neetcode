@@ -21,3 +21,24 @@ Given the root of a binary tree, check whether it is a mirror of itself (i.e., s
  * 
  * so we want to test that the left tree is the same order of the other tree reversed.
  */
+
+var isSymmetric = function(root) {
+  //if root is null, true since a 0 depth tree is symmetrical
+  // if root has no left or no right sub tree, then its immediately false
+  
+  if(root === null) return true;
+  if(!root.left || !root.right) return false;
+
+  const left = root.left;
+  const right = root.right;
+    
+};
+
+function inOrderTraverse(root, out = []){
+
+  if(root.left !== null) inOrderTraverse(root.left, out);
+  out.push(root.val)
+  if(root.right !== null) inOrderTraverse(root.right, out);
+
+  return out;
+}
