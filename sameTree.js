@@ -48,7 +48,9 @@ function inOrderTraverse(root, out = []){
   else{
     out.push(false);
   }
+
   out.push(root.val)
+  
   if(root.right !== null){
     out.push(true);
     inOrderTraverse(root.right, out);
