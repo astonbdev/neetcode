@@ -24,10 +24,8 @@ Two binary trees are considered the same if they are structurally identical, and
  * @return {boolean}
  */
 var isSameTree = function(p, q) {
-    if(p.length === 0 || q.length === 0){
-      if(p.length === q.length) return true;
-      return false;
-    }
+    if(p === null && q === null) return true;
+    if(p === null || q === null) return false
 
     const pOrder = inOrderTraverse(p);
     const qOrder = inOrderTraverse(q);
@@ -43,10 +41,21 @@ var isSameTree = function(p, q) {
 
 function inOrderTraverse(root, out = []){
 
-  if(root.left !== null) inOrderTraverse(root.left, out);
+  if(root.left !== null){
+    out.push(true);
+    inOrderTraverse(root.left, out);
+  } 
+  else{
+    out.push(false);
+  }
   out.push(root.val)
-  if(root.right !== null) inOrderTraverse(root.right, out);
-
+  if(root.right !== null){
+    out.push(true);
+    inOrderTraverse(root.right, out);
+  } 
+  else{
+    out.push(false);
+  }
 
   return out;
 }
